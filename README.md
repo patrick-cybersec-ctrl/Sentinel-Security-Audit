@@ -12,7 +12,7 @@ Before performing the audit, I developed **sentinel_report.sh**. This script aut
 * **Scripting:** Used `grep` and `if-else` loops to parse service versions.
 * **Risk Mapping:** Defined Port 80 as a "Warning" (unencrypted) and Port 3306 as "Critical" (exposed database).
 
-![Screenshot 1: source code analysis](Sentinel_01.jpeg)
+![Screenshot 1: Source Code Analysis](01_sentinel_source_code.jpeg)
 
 ---
 
@@ -25,7 +25,7 @@ Using a "Blind Scan" approach, I performed a full-range reconnaissance on the ta
 
 **Findings:** The audit revealed an **Apache Web Server (Port 80)** and a **MariaDB Database (Port 3306)** openly listening for connections.
 
-![Screenshot 2: initial vulnerability report](Sentinel_02.jpeg)
+![Screenshot 2: Initial Vulnerability Report](02_vulnerability_detection.jpeg)
 
 ---
 
@@ -33,11 +33,10 @@ Using a "Blind Scan" approach, I performed a full-range reconnaissance on the ta
 Once the risks were identified, I transitioned to the role of a Security Engineer to "close the doors" and harden the system perimeter.
 
 **Commands Executed:**
-* `sudo apt install ufw`: Installed the Uncomplicated Firewall.
 * `sudo ufw deny 3306/tcp`: Configured a firewall rule to drop all incoming traffic to the database port.
 * `sudo systemctl stop apache2`: Decommissioned the unencrypted web service to eliminate the attack surface.
 
-![Screenshot 3: system hardening actions](Sentinel_03.jpeg)
+![Screenshot 3: System Hardening Actions](03_hardening_process.jpeg)
 
 ---
 
@@ -48,7 +47,7 @@ In real-world security, tools must be updated to reflect new data. I modified th
 * **Maintenance:** Updated the `SCAN_FILE` variable within the script logic.
 * **Version Control:** Demonstrated the ability to modify automation scripts on the fly.
 
-![Screenshot 4: script update for verification](Sentinel_04.jpeg)
+![Screenshot 4: Script Update for Verification](04_verification_update.jpeg)
 
 ---
 
@@ -62,4 +61,4 @@ The final step was to prove the effectiveness of the remediation. I performed a 
 **Result:**
 The system achieved a **Zero-Exposure** state, with the script reporting **[SAFE]** for all checked parameters.
 
-![Screenshot 5: final security verification](Sentinel_05.lpeg)
+![Screenshot 5: Final Security Verification](05_final_security_status.png)
